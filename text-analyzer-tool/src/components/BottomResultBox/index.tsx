@@ -1,6 +1,8 @@
 import './index.scss'
-
-const BottomResultBox = () => {
+interface props {
+  data: Array<{ title: string; value: string | number }>
+}
+const BottomResultBox = ({data}:props) => {
   const bottomResultBar = [
     {
       title: 'Average Reading Time:',
@@ -14,7 +16,7 @@ const BottomResultBox = () => {
 
   return (
     <div className="bottom-result-bar">
-      {bottomResultBar.map(({ title, value }) => (
+      {data?.map(({ title, value }) => (
         <div className="result-box" key={title}>
           <span className="box-title">{title}</span>
           <span className="box-value">{value}</span>
